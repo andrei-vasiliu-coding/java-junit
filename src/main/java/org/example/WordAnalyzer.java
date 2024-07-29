@@ -12,24 +12,41 @@ public class WordAnalyzer {
         String longestWord = splitWord[0];
 
         for (int i = 0; i < splitWord.length - 1; i++) {
-
             if (longestWord.length() < splitWord[i + 1].length()) {
                 longestWord = splitWord[i + 1];
-            } else if (longestWord.length() == splitWord[i + 1].length()) {
-                longestWordArrayList.add(splitWord[i + 1]);
             }
         }
         longestWordArrayList.add(longestWord);
-        String[] finalArray = new String[longestWordArrayList.size()];
-        for (int i = 0; i < longestWordArrayList.size(); i++) {
-            finalArray[i] = longestWordArrayList.get(i);
+
+        for (int i = 0; i < splitWord.length; i++) {
+            if (!longestWord.equals(splitWord[i]) && longestWord.length() == splitWord[i].length()) {
+                longestWordArrayList.add(splitWord[i]);
+            }
         }
 
-        for (String word: finalArray) {
-            System.out.println(word);
-        }
-        System.out.println("------");
+        String[] finalArray = new String[longestWordArrayList.size()];
+        finalArray = longestWordArrayList.toArray(finalArray);
         return finalArray;
+
+//        for (int i = 0; i < splitWord.length - 1; i++) {
+//
+//            if (longestWord.length() < splitWord[i + 1].length()) {
+//                longestWord = splitWord[i + 1];
+//            } else if (longestWord.length() == splitWord[i + 1].length()) {
+//                longestWordArrayList.add(splitWord[i + 1]);
+//            }
+//        }
+//        longestWordArrayList.add(longestWord);
+//        String[] finalArray = new String[longestWordArrayList.size()];
+//        for (int i = 0; i < longestWordArrayList.size(); i++) {
+//            finalArray[i] = longestWordArrayList.get(i);
+//        }
+//
+//        for (String word: finalArray) {
+//            System.out.println(word);
+//        }
+//        System.out.println("------");
+//        return finalArray;
     }
 
     public Map<Character, Integer> calculateLetterFrequency(String text) {
