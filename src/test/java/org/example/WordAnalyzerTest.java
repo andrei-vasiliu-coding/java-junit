@@ -28,6 +28,10 @@ class WordAnalyzerTest {
 
     @Test
     void calculateLetterFrequency() {
-        wa.calculateLetterFrequency(input);
+        assertAll("Return the frequency for the letter",
+                () -> assertEquals(4, wa.calculateLetterFrequency(input).get('a')),
+                () -> assertEquals(5, wa.calculateLetterFrequency(input2).get('i')),
+                () -> assertEquals(1, wa.calculateLetterFrequency(input2).get('b')),
+                () -> assertNull(wa.calculateLetterFrequency(input2).get('x')));
     }
 }

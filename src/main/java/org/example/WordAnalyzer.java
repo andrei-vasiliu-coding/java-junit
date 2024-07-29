@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class WordAnalyzer {
@@ -51,6 +52,16 @@ public class WordAnalyzer {
 
     public Map<Character, Integer> calculateLetterFrequency(String text) {
         // TODO: Implement the logic to calculate the frequency of each letter in the given text
-        return null;
+        HashMap<Character, Integer> ourMap = new HashMap<>();
+
+        Character[] alphabet = {'A', 'a'};
+        for (int i = 0; i < text.length(); i++) {
+            ourMap.put(text.charAt(i), ourMap.getOrDefault(text.charAt(i), 0) + 1);
+        }
+
+        System.out.println(ourMap);
+        System.out.println(ourMap.get('a')); //single quotation for character, double for string
+
+        return ourMap;
     }
 }
