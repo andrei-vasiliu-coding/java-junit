@@ -22,8 +22,18 @@ public class Compass {
             return Point.WEST.toString();
         } else if (point.equalsIgnoreCase(Point.WEST.toString()) && direction.equalsIgnoreCase(Direction.RIGHT.toString())) {
             return Point.NORTH.toString();
-
         }
+
+        if(point.equalsIgnoreCase(Point.NORTH.toString()) && direction.equalsIgnoreCase(Direction.LEFT.toString())) {
+            return Point.WEST.toString();
+        } else if (point.equalsIgnoreCase(Point.EAST.toString()) && direction.equalsIgnoreCase(Direction.LEFT.toString())) {
+            return Point.NORTH.toString();
+        } else if (point.equalsIgnoreCase(Point.SOUTH.toString()) && direction.equalsIgnoreCase(Direction.LEFT.toString())) {
+            return Point.EAST.toString();
+        } else if (point.equalsIgnoreCase(Point.WEST.toString()) && direction.equalsIgnoreCase(Direction.LEFT.toString())) {
+            return Point.SOUTH.toString();
+        }
+
         return null;
     }
 }
